@@ -1,0 +1,144 @@
+1. O que é um objeto?
+
+ - Qualquer coisa do mundo real representado no mundo computacional;
+ - Possui estado, identidade e comportamento;
+ - É uma instância da classe
+
+Objeto == Instância
+
+2. O que é uma classe?
+
+ - É abstração do objeto; 
+ - Define o estado do objeto por meio de atributos;
+ - Define os comportamentos por meio de métodos;
+ - Classes definem tipos de dados (Tipos Objetos ou Tipos Referência);
+
+3. Diferencie tipos primitivos dos tipos referência?
+
+ Primitivos
+  - Armazenam valores
+  - Começam com letra minúscula, por exemplo int
+  - O valor de uma variável do tipo primitivo depende do seu tipo, se for int, double, float é zero, se for boolean é false e char é ''.
+
+ Referência
+  - Armazenam referência para objetos
+  - Começam com letra maiúscula, por exemplo String
+  - O valor padrão para toda variável do tipo referência é null;
+
+
+4. O que é uma variával
+
+ - São idenficadores de espaço na memória, os quais armazenam algum tipo de informação
+
+5. O que são variáveis de instância?
+
+ - Pertencem ao objeto, ou seja, somente existem se o objeto existir.
+ - São os atributos do objeto.
+
+6. O que é um método?
+
+  - Um método define algum tipo de comportamento.
+
+7. O que é um método de instância.
+
+  - Comportamento do objeto;
+  - Só existe se o objeto existir.
+  - Para chamar um método de instância, é necessário a variável que contém uma referência para instância, seguido do ponto, seguido do nome do método e então parâmetros. Se for na classe que o define, simplismente usa-se o nome do método e os devidos argumentos.
+
+8. O que é uma variável de classe? 
+
+  - É uma variável que pertence a classe; 
+  - Não necessita de uma instância da classe para ela existir.	
+	
+9. Como que chamo uma variável ou constante da classe?
+
+  - NomeDaClasse.NOME_DA_CONSTANTE;
+  - NomeDaClasse.nomeDaVariavel;
+
+10. O que é uma constante?
+
+ -  É um identificador que sempre aponta para o mesmo valor.
+ 
+11. O que é uma constante de classe?
+
+  - É uma constante que pertence a classe; 
+  - Não necessita de uma instância da classe para ela existir.	
+
+
+12. O que é um método de classe? 
+
+  - É um método que pertence a classe que o define; 
+  - Não necessita de uma instância da classe para ele existir;
+
+13. Quando devo ter um método de classe?
+
+  - Um método é um forte candidato a ser de classe, quando este não necessita, ou envolve, um estado.
+
+14. Um exemplo de método de classe?
+
+  - Math.sqrt(3);
+
+public class Matematica {
+    
+    public static double soma(double n, double n1) {
+        return n + n1;
+    }
+}
+	
+
+15. Como criar um método de classe?
+
+  - Usando o modificador static
+
+16. Um exemplo de constante.
+
+  - Math.PI
+  - public static final int MAIOR_IDADE = 18;	
+
+17. Um método de classe pode chamar outro método de classe?
+
+Sim, por exemplo:
+
+public class Matematica {
+    
+    public static double soma(double n, double n1) {
+        return n + n1;
+    }
+    
+    public static double raizMenos2(double n) {
+        return Math.sqrt(n) - 2;
+    }
+}
+
+
+18. Um método de instância pode chamar outro método de instância?
+
+Sim, por exemplo:
+
+    public boolean autentica(String email, String senha) {
+        return getEmail().equals(email) && this.senha.equals(senha);
+    }
+
+19. Um método de instância pode chamar um método de classe?
+
+Sim, por exemplo:
+
+    private String criptografar(String s) {
+        return s + Math.sqrt(s.length());
+    }
+
+20. Um método de classe pode chamar um método de instância?
+
+Depende
+
+Diretamente não, em classe que tem métodos de classe e de instância, o método de classe não pode chamar diretamente um métod de instância.
+
+
+Se ele tiver a referência para instância, por meio dela ele pode
+
+public class Principal {
+    public static void main(String[] args) {
+        Usuario u = new Usuario("Diego", "email", "senha");
+        System.out.println(u.getNome());
+    }
+}
